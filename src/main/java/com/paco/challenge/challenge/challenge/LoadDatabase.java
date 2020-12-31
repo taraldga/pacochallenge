@@ -13,8 +13,7 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(ChallengeRepository repository) {
         return args -> {
-            log.info("Preloading " + repository.save(new Challenge("Løpechallenge", "Løpedistanse ut året")));
-            log.info("Preloading " + repository.save(new Challenge("Skrittchallenge", "Hvor mange skritt kan du ta")));
+
         };
     }
 }

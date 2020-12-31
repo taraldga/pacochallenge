@@ -1,64 +1,43 @@
 package com.paco.challenge.challenge.challenge;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
+@Data
 @Entity
 public class Challenge {
     private @Id @GeneratedValue Long id;
     private String title;
     private String description;
     private String type;
-    private Double goal;
+    private int goal;
+    private String timeInterval;
     private String measureUnit;
     private Date startDate;
     private Date endDate;
     private Date created;
     private Date updated;
-    private String interval;
 
-    public Challenge(String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
     public Challenge() {}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public Challenge(String title, String description, String type, int goal, String timeInterval, String measureUnit, Date startDate, Date endDate, Date created, Date updated) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.id, this.title, this.description);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Challenge{id=%d,name=%s}", this.id, this.description);
+        this.type = type;
+        this.goal = goal;
+        this.timeInterval = timeInterval;
+        this.measureUnit = measureUnit;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.created = created;
+        this.updated = updated;
     }
 
     @Override
